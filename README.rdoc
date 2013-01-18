@@ -4,6 +4,7 @@ Use Mysql AUTO_INCREMENT to support id name cache
 
 == Usage
 
+=== setup
   create_table :kv_browser_names, :options => 'ENGINE=MyISAM DEFAULT CHARSET=utf8' do |t|
     t.string :name
     t.timestamps
@@ -25,10 +26,23 @@ or
     self.primary_key = :tagid
 
     include IdNameCache; set_key_value :tagid, :tagname
+    # include IdNameCache; set_key_value_without_create :tagid, :tagname # if you dont want create it automately
   end
 
+=== use cases
+ruby-1.9.3-rc1 :001 > QuizTag[1]
+  QuizTag Load (0.3ms)  SELECT `common_tag`.* FROM `common_tag` WHERE `common_tag`.`tagid` = 1 LIMIT 1
+ => "Android"
+ruby-1.9.3-rc1 :002 > QuizTag[1]
+ => "Android"
+ruby-1.9.3-rc1 :003 > QuizTag['Android']
+  QuizTag Load (0.5ms)  SELECT `common_tag`.* FROM `common_tag` WHERE `common_tag`.`tagname` = 'Android' LIMIT 1
+ => 1
+ruby-1.9.3-rc1 :004 > QuizTag['Android']
+ => 1
+
 == Contributing to activerecord_idnamecache
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
@@ -39,6 +53,4 @@ or
 
 == Copyright
 
-Copyright (c) 2013 David Chen. See LICENSE.txt for
-further details.
-
+Copyright (c) 2013 David Chen at eoe.cn. See LICENSE.txt for further details.
