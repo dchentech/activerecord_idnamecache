@@ -1,6 +1,31 @@
 = activerecord_idnamecache
 
-Description goes here.
+Use Mysql AUTO_INCREMENT to support id name cache
+
+== Usage
+
+  create_table :kv_browser_names, :options => 'ENGINE=MyISAM DEFAULT CHARSET=utf8' do |t|
+    t.string :name
+    t.timestamps
+  end
+
+  class KvBrowserName < ActiveRecord::Base
+    include IdNameCache
+  end
+
+or
+
+  create_table :common_tag, :options => 'ENGINE=MyISAM DEFAULT CHARSET=utf8' do |t|
+    t.integer :tagid
+    t.string  :tagname
+  end
+
+  class CommonTag < ActiveRecord::Base
+    self.table_name = :common_tag
+    self.primary_key = :tagid
+
+    include IdNameCache; set_key_value :tagid, :tagname
+  end
 
 == Contributing to activerecord_idnamecache
  
