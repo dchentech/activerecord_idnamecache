@@ -1,6 +1,6 @@
 = activerecord_idnamecache
 
-Use Mysql AUTO_INCREMENT to support id name cache
+Use Mysql AUTO_INCREMENT to support key value cache, which should be combined by an integer and string.
 
 == Usage
 

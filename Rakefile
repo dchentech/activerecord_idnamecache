@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "activerecord_idnamecache"
   gem.homepage = "http://github.com/mvj3/activerecord_idnamecache"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Use Mysql AUTO_INCREMENT to support key value cache, which should be combined by an integer and string."
+  gem.description = gem.summary
   gem.email = "mvjome@gmail.com"
   gem.authors = ["David Chen"]
   # dependencies defined in Gemfile
