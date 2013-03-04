@@ -14,7 +14,7 @@ class ActiveRecord::Base
       self._hash_cache = Hash.new # Trie和Hash察看单个字符串性能比较 http://code.eoe.cn/code/32/
       self.idname_id = :id
       self.idname_name = :name
-      self.could_create = false
+      self.could_create = true
     end
 
     module ClassMethods
