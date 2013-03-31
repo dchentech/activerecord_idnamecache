@@ -1,6 +1,10 @@
 = activerecord_idnamecache
 
 Use Mysql AUTO_INCREMENT to support key value cache, which should be combined by an integer and string.
+It means to reduce the database storage size, and improve query performance.
+
+Some relatived articles:
+http://en.wikipedia.org/wiki/Correlation_database
 
 == Usage
 
