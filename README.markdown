@@ -3,7 +3,7 @@ activerecord_idnamecache
 Use Mysql AUTO_INCREMENT to support key value cache, which should be combined by an integer and string.
 It means to reduce the database storage size, and improve query performance.
 
-All cache will store in process memory, and will never be expired, until the process dies, so the less kvs you use, the better performance you will get. BTW, 100,0000 general strings use 10MB memory.
+All cache will store in process memory, and will never be expired, until the process dies, so the less kvs you use, the better performance you will get. BTW, 100,000 general strings use 10MB memory.
 
 Some relatived articles:
 http://en.wikipedia.org/wiki/Correlation_database
